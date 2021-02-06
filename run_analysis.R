@@ -1,7 +1,7 @@
 # Coursera Assignment - Data cleaning with R
 
 library(data.table)
-setwd("C:/Users/chris/Dropbox/Data_Science/Repositories/Coursera/DataCleaning/assignment/data")
+
 # load all needed files
 testx <- fread(".\\test\\X_test.txt")
 testy <- fread(".\\test\\y_test.txt")
