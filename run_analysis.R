@@ -1,20 +1,18 @@
 # Coursera Assignment - Data cleaning with R
 
-setwd("")
-
 library(data.table)
-
+setwd("C:/Users/chris/Dropbox/Data_Science/Repositories/Coursera/DataCleaning/assignment/data")
 # load all needed files
-testx <- fread(".\\data\\test\\X_test.txt")
-testy <- fread(".\\data\\test\\y_test.txt")
-testsub <- fread(".\\data\\test\\subject_test.txt")
+testx <- fread(".\\test\\X_test.txt")
+testy <- fread(".\\test\\y_test.txt")
+testsub <- fread(".\\test\\subject_test.txt")
 
-trainx <- fread(".\\data\\train\\X_train.txt")
-trainy <- fread(".\\data\\train\\y_train.txt")
-trainsub <- fread(".\\data\\train\\subject_train.txt")
+trainx <- fread(".\\train\\X_train.txt")
+trainy <- fread(".\\train\\y_train.txt")
+trainsub <- fread(".\\train\\subject_train.txt")
 
-features <- fread(".\\data\\features.txt") # variable labels for test/train
-activityLabels <- fread(".\\data\\activity_labels.txt") # value labels for activity
+features <- fread(".\\features.txt") # variable labels for test/train
+activityLabels <- fread(".\\activity_labels.txt") # value labels for activity
 
 # do some renaming to avoid confusion later
 setnames(testy, c("V1"), c("activity"))
@@ -83,5 +81,5 @@ dt2 <- dt[, lapply(.SD, mean), # apply mean function
 # Clean up
 rm(list=setdiff(ls(), "dt2"))
 # save tidy data as csv
-write.csv(dt2, file = "./dataCleaning/tidyData.csv", row.names = F)
+write.table(dt2, file = "tidyData.txt", row.names = F)
 
